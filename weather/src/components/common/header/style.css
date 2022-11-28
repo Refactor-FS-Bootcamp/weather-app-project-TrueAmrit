@@ -1,0 +1,11 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: #d9ebfe;
+    height: 45px;
+    align-items: center;
+    font: normal bold 18px/24px larger;
+    padding: 20px;
+    padding-right: 30px;
+    
+  }

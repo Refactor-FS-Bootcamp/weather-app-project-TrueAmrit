@@ -1,0 +1,22 @@
+.sidebar-wrapper {
+    float: left;
+    height: 100vh;
+    background-color: #3867d6;
+    overflow: hidden;
+    width:100px
+  }
+  .tab{
+    width: 100%;
+    height: 84px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .tab:hover {
+    background-color: #F8EFBA;
+  }
+  
