@@ -1,40 +1,34 @@
-import './style.css';
+import "./style.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = (props) => {
-    const { sidebarTab } = props;
-    const [active, setstate] = useState({
-        background: "#EAB543",
-    });
-    const [inactive, setstate2] = useState({
-    });
-    const handleClick = (tab) => {
-        if (tab === "Home") {
-            setstate({background: "#EAB543"})
-            setstate2()
-            console.log("home");
-            
-        } else if (tab === "City") {
-            setstate2({background: "#EAB543"})
-            setstate()
-            console.log("Cities");
-        }
-    };
-    return (
-        <div className="sidebar-wrapper">
-            {sidebarTab.map((tab, index) => {
-                if (index === 0) {
-                    return (
-                        <div className='tab' style={active} onClick={() => handleClick(tab.tab)}>{tab.tab}</div>
-                    )
-                }
-                else {
-                    return (
-                        <div className='tab' style={inactive} onClick={() => handleClick(tab.tab)}>{tab.tab}</div>
-                    )
-                }
-            })}
-        </div>
-    )
-}
-export default Sidebar
+  const { sidebarTab } = props;
+  const [selectedTab, setSelectedTab] = useState("Home");
+  const navigate =useNavigate();
+  const handleClick = (tab) => {
+    setSelectedTab(tab);
+    if (tab === "Home") {
+      navigate("/")
+      console.log("home");
+    } else if (tab === "City") {
+      navigate("/city")
+      console.log("Cities");
+    }
+  };
+  return (
+    <div className="sidebar-wrapper">
+      {sidebarTab.map((tab) => {
+        return (
+          <div
+            className={selectedTab === tab.tab ? "active-tab" : "inactive-tab"}
+            onClick={() => handleClick(tab.tab)}
+          >
+            {tab.tab}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+export default Sidebar;

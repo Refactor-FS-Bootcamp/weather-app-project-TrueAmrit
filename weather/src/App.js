@@ -1,22 +1,12 @@
-import './App.css';
-import Header from './components/common/header/header';
-import Sidebar from './components/common/sidebar/sidebar';
+import "./App.css";
+import AppRoute from "./Routes/app-routes";
 
 function App() {
-  const sidebarTab = [
-    {
-      tab: "Home"
-    },
-    {
-      tab: "City"
-    },
-  ];
+  
   return (
     <div className="App">
-      <Sidebar sidebarTab={sidebarTab}/>
-     <Header heading={"My Favorite cities"}/>
+      <AppRoute/>
     </div>
   );
 }
-
 export default App;

@@ -7,5 +7,9 @@
     font: normal bold 18px/24px larger;
     padding: 20px;
     padding-right: 30px;
-    
   }
+  .content-home{
+    width: calc(100vw - 140px);
+    height: calc(100vh - 125px);
+    padding: 20px;
+}
