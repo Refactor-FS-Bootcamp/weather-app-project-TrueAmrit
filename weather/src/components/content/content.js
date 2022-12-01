@@ -1,7 +1,11 @@
+import { useState } from "react";
 import IconButton from "../common/icon-button/iconbutton";
+import Modal from "../common/modal/modal";
 import "./style.css";
 const Content = () => {
+  const [showModal, setShowModal] =useState(false);
     const addCity =()=>{
+      setShowModal(true);
         console.log("add a city")
     }
   return (
@@ -17,6 +21,7 @@ const Content = () => {
           </div>
         </div>
       </div>
+      {showModal ? <Modal/>:<></>}
     </div>
   );
 };
