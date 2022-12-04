@@ -2,7 +2,7 @@ import "./style.css";
 const IconButton = (props) => {
     const {data,handleClick} =props
   return (
-  <span onClick={handleClick} class="material-symbols-outlined">{data}</span>
+  <span onClick={handleClick} class="material-symbols-outlined" >{data}</span>
   )
 };
 export default IconButton;
@@ -10,3 +10,5 @@ export default IconButton;
 
 // + => "add_circle"
 // x => "close"
+// star=> "star"
+//fill star => "star_half"
