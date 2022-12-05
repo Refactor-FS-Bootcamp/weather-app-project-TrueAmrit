@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../context/app-contest";
-import IconButton from "../icon-button/iconbutton";
 import { SiderContainer } from "./style";
 
 const Sidebar = (props) => {

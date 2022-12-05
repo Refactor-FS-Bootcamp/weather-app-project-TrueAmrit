@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { MyContext } from "../common/context/app-contest";
 import IconButton from "../common/icon-button/iconbutton";
 import Modal from "../common/modal/modal";
+import { Cities } from "../helper/constant";
 import CityDetails from "./city-details";
 import { MainContent } from "./style";
 
@@ -11,8 +12,9 @@ const Content = () => {
   
 
   const addCity = () => {
+    const unselected =Cities.filter((city)=>!context.selectedCities.includes(city))
+    context.setAllCity(unselected)
     setShowModal(true);
-    console.log("add a city");
   };
   const closeModal = () => {
     setShowModal(false);
