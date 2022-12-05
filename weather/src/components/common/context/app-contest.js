@@ -9,6 +9,7 @@ export const ApplicationContextProvider = ({ children }) => {
     const [currentCity,setCurrentCity]= useState();
     const [cardState, setcardState] = useState(false);
     const [favCity,setFavCity]=useState([])
+    const [mode,setMode] = useState("light")
   
   
     const value = {
@@ -22,6 +23,8 @@ export const ApplicationContextProvider = ({ children }) => {
       setcardState,
       favCity,
       setFavCity,
+      mode,
+      setMode,
 
     };
   

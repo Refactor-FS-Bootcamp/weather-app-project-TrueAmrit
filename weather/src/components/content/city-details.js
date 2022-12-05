@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import "./style.css";
 import { MyContext } from "../common/context/app-contest";
 import IconButton from "../common/icon-button/iconbutton";
 import { toast, ToastContainer } from "react-toastify";
+import { CityDetailContainer } from "./style";
 
 const CityDetails = () => {
   const context = useContext(MyContext);
@@ -11,7 +11,6 @@ const CityDetails = () => {
     if (!context.favCity.includes(context.currentCity)) {
       const current = [...context.favCity, context.currentCity];
       context.setFavCity(current);
-      console.log(context.favCity);
       toast.success('City added to favorites', {
         position: "top-center",
         autoClose: 1000,
@@ -27,7 +26,7 @@ const CityDetails = () => {
     {
       const fav = context.favCity.filter((c) => c.id !== context.currentCity.id);
       context.setFavCity(fav)
-      console.log("done");
+      // console.log("done");
       toast('❌City removed from favorites', {
         position: "top-center",
         autoClose: 1000,
@@ -42,7 +41,7 @@ const CityDetails = () => {
   };
 
   return (
-    <>
+    <CityDetailContainer>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -79,7 +78,7 @@ const CityDetails = () => {
       ) : (
         <></>
       )}
-    </>
+    </CityDetailContainer>
   );
 };
 

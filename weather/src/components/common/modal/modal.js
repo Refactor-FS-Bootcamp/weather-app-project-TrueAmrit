@@ -1,18 +1,17 @@
 import { useContext, useState } from "react";
 import { Cities } from "../../helper/constant";
 import IconButton from "../icon-button/iconbutton";
-import "./style.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { MyContext } from "../context/app-contest";
+import { ModalContainer } from "./style";
 
 const Modal = (props) => {
   const context = useContext(MyContext);
   const [searchText, setSearchText] = useState("");
- 
+  
 
   const handleChange = (e) => {
-    console.log(e);
     setSearchText(e.target.value);
     const filterCities = Cities.filter(
       (city) =>
@@ -24,7 +23,6 @@ const Modal = (props) => {
   const handleAdd = (city) => {
     if (!context.selectedCities.includes(city)) {
       const selected = [...context.selectedCities, city];
-      console.log(context.selectedCities);
       context.setSelectedCities(selected);
       const unselectedCities = context.allCity.filter((c) => c.id !== city.id);
       context.setAllCity(unselectedCities);
@@ -41,6 +39,7 @@ const Modal = (props) => {
     }
   };
   return (
+    <ModalContainer mode={context.mode}>
     <div className="modal-wrapper">
       <ToastContainer
         position="top-center"
@@ -90,6 +89,7 @@ const Modal = (props) => {
         }}
       ></div>
     </div>
+    </ModalContainer>
   );
 };
 export default Modal;

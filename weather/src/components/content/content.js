@@ -3,7 +3,8 @@ import { MyContext } from "../common/context/app-contest";
 import IconButton from "../common/icon-button/iconbutton";
 import Modal from "../common/modal/modal";
 import CityDetails from "./city-details";
-import "./style.css";
+import { MainContent } from "./style";
+
 const Content = () => {
   const context = useContext(MyContext);
   const [showModal, setShowModal] = useState(false);
@@ -21,14 +22,13 @@ const Content = () => {
     context.setcardState(true);
   };
   return (
+    <MainContent mode={context.mode}>
     <div className="main-content">
       <div className="main-wrapper">
         <div className="left-card">
           <div className="card-header">
             <div>Cities</div>
-            <div className="add-btn">
               <IconButton handleClick={addCity} data={"add_circle"} />
-            </div>
           </div>
           <div className="card-container">
             {context.selectedCities.length === 0 ? (
@@ -41,8 +41,8 @@ const Content = () => {
                       className="city-box"
                       onClick={() => showDetailCard(city)}
                     >
-                      <div className="city-name">{city.name}</div>
-                      <div className="city-temp">{city.temp}</div>
+                      <div className="city-d">{city.name}</div>
+                      <div className="city-d">{city.temp}</div>
                     </div>
                   );
                 })}
@@ -54,6 +54,7 @@ const Content = () => {
       </div>
       {showModal ? <Modal closeModal={closeModal} reset={true} /> : <></>}
     </div>
+    </MainContent>
   );
 };
 export default Content;
