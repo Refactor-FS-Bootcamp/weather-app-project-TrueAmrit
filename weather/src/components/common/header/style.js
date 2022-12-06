@@ -62,4 +62,4 @@ export const HeaderHomeContainer = styled.div`
   }
 `;
 
-// rgb(40, 44, 52);
+

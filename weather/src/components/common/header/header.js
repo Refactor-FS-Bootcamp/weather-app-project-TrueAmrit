@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { Cities } from "../../helper/constant";
 import Button from "../button/button";
 import { MyContext } from "../context/app-contest";
 import IconButton from "../icon-button/iconbutton";
@@ -12,12 +11,12 @@ const Header = (props) => {
   const { heading } = props;
   const [showModal, setShowModal] = useState(false);
   const context = useContext(MyContext);
+
   const addCity = () => {
     setShowModal(true);
   };
+
   const closeModal = () => {
-    const unselected =Cities.filter((city)=>!context.selectedCities.includes(city))
-    context.setAllCity(unselected)
     setShowModal(false);
   };
  

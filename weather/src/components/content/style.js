@@ -63,6 +63,7 @@ export const MainContent = styled.div`
           }
           .city-box:hover {
             background-color: lightgrey;
+            color: black;
           }
         }
       }

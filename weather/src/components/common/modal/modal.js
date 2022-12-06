@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Cities } from "../../helper/constant";
 import IconButton from "../icon-button/iconbutton";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,6 +10,10 @@ const Modal = (props) => {
   const context = useContext(MyContext);
   const [searchText, setSearchText] = useState("");
   
+  useEffect(()=>{
+    const unselected =Cities.filter((city)=>!context.selectedCities.includes(city))
+    context.setAllCity(unselected)
+  },[])
 
   const handleChange = (e) => {
     setSearchText(e.target.value);
